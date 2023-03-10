@@ -1,48 +1,18 @@
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left w3-card-4 w3-padding-32"
-     style="z-index:3;width:300px;" id="mySidebar"><br>
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
 
-  <div class="w3-container">
-    <a href="#" onclick="w3_close()"
-       class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
-      <i class="fa fa-remove"></i>
-    </a>
-    <img src="<%- url_for('/imgs/home-01.jpg') %>" style="width:45%;" class="w3-round"><br><br>
-    <h4><b>冰心阁主</b></h4>
-    <p class="w3-text-grey">心静如流水</p>
-  </div>
-
-  <div class="w3-bar-block">
-
-    <a href="<%- url_for('/') %>" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">
-      <i class="fa fa-th-large fa-fw w3-margin-right"></i>家园
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <span class="fs-4">冰心阁主</span>
     </a>
 
-    <a href="<%- url_for('/about/') %>" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-user fa-fw w3-margin-right"></i>关于
-    </a>
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <input type="search" class="form-control" placeholder="搜索..." aria-label="Search">
+    </form>
 
-    <a href="<%- url_for('/archives/') %>" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-user fa-fw w3-margin-right"></i>归宿
-    </a>
-
-    <a href="<%- url_for('/contact/') %>" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-envelope fa-fw w3-margin-right"></i>触碰
-    </a>
-
-  </div>
-
-  <div class="w3-panel w3-large">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>
-
-  <footer>
-    <%- partial('_partial/footer') %>
-  </footer>
-
-</nav>
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link px-4 link-secondary" aria-current="page">主页</a></li>
+        <li class="nav-item"><a href="/archives" class="nav-link px-4 link-dark">归  档</a></li>
+        <li class="nav-item"><a href="/categories" class="nav-link px-4 link-dark">分  类</a></li>
+        <li class="nav-item"><a href="/docs" class="nav-link px-4 link-dark">文  档</a></li>
+        <li class="nav-item"><a href="/about" class="nav-link px-4 link-dark">关于我</a></li>
+    </ul>
+</header>

@@ -1,41 +1,45 @@
-<div class="w3-container w3-white w3-padding-32">
-  <div class="w3-row-padding">
+<div class="container">
 
-    <div class="w3-container w3-white w3-margin w3-padding-large">
-
-      <div class="w3-center">
+      <div class="text-center">
         <h3><%= page.title %></h3>
-        <h5><span class="w3-opacity"><%- full_date(page.date,'MMMM Do YYYY') %></span></h5>
+        <h6 class="opacity-50">
+	    <span class="fonts-2 badge text-bg-secondary">
+		<i class="bi bi-calendar-date"> </i><%- full_date(page.date,'MMMM Do YYYY') %>
+	    </span>
+
+	    <a href="" class="badge text-bg-secondary">
+		<i class="bi bi-tag"> </i>
+		<span>Tags</span>
+	    </a>
+	</h5>
       </div>
-
-      <div class="w3-justify">
-
-	<!--
-        <img src="<%- url_for('/imgs/line.gif') %>" alt="Runway" style="width:100%" class="w3-padding-16">
-	-->
 
 	<span>
 	  <%- page.content%>
 	</span>
 
-        <p class="w3-left">
-	  <button class="w3-button w3-white w3-border" onclick="likeFunction(this)">
-	    <b><i class="fa fa-thumbs-up"></i> 喜欢</b>
-	  </button>
-	</p>
+	<div class="container opacity-75 row">
 
-        <p class="w3-right">
-	  <button class="w3-button w3-black" onclick="myFunction('demo3')">
-	    <b>回帖  </b>
-	    <span class="w3-tag w3-white">3</span>
-	  </button>
-	</p>
+	    <div class="col">
+		<button type="button" class="btn btn-secondary position-relative">
+		    喜欢
+		    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+			<b><i class="fa fa-thumbs-up"></i></b>
+			<span class="visually-hidden">unread messages</span>
+		    </span>
+		</button>
+	    </div>
+	    <div class="col">
+		<button type="button" class="btn btn-secondary position-relative">
+		    评论
+		    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+			<b>3</b>
+			<span class="visually-hidden">unread messages</span>
+		    </span>
+		</button>
+	    </div>
+	</div>
 
-        <p class="w3-clear"></p>
-
-      </div>
-
-    </div>
-
-  </div>
+	<br class="b-example-divider">
+	<br class="b-example-divider">
 </div>
