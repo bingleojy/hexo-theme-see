@@ -1,0 +1,28 @@
+<!-- Recent Article -->
+<% if (site.posts.length){ %>
+    <div class="recent-posts">
+        <h2><%- __('recent_posts') %></h2>
+        <ul>
+	    <% site.posts.sort('date', -1).limit(4).each(function(post){ %>
+		<li>
+		    <a class="footer-post"
+		       href="<%- url_for(post.path) %>">
+			<%= (post.title || theme.default_post_title || __('default_post_title')).substring(0, 25) %>
+		    </a>
+		</li>
+	    <% }) %>
+        </ul>
+    </div>
+<% } %>
+
+<ul class="footer-social-icons">
+    <% if(theme.github_url) { %>
+        <li class="list-inline-item">
+            <a href="<%- theme.github_url %>">
+                <span class="footer-icon-container">
+                    <i class="fa fa-github"></i>
+                </span>
+            </a>
+        </li>
+    <% } %>
+</ul>

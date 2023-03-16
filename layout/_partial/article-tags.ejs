@@ -1,0 +1,15 @@
+<nav class="breadcrumb is-large" aria-label="breadcrumbs">
+    <ul>
+	<% if (item.tags && item.tags.length){ %>
+	    <%
+		var tags = [];
+		item.tags.forEach(function(tag){
+		    tags.push('<li><a class=""  href="' + config.root + tag.path + '">#' + tag.name + '</a></li>');
+		});
+	    %>
+
+	    <%- tags.join(' ') %>
+
+	<% } %>
+    </ul>
+</nav>

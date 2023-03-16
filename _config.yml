@@ -1,3 +1,43 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  Tags: /tags
+  Docs: /docs
+  Categoies: /categories
+  About: /about
+  Contact: /contact
+  Me: /me
+
+# Default post title
+default_post_title: Untitled
+
+# Archive Date Format
+archive_date_format: MMM YYYY
+
+
+# Logo (Font Awesome Class)
+fa_logo: fa-cube
+
+# Footer About Text
+footer_about: "Make Websites. Make Magic."
+
+#Footer Copyright Line
+footer_copyright: "@Untitled. All right reserved | Design & Hexo <a href=\"https://binglinli.github.io/\">Binglin Li</a>"
+
+
+# Social Accounts
+twitter_url: https://twitter.com/?lang=en
+facebook_url: https://www.facebook.com/
+instagram_url: https://www.instagram.com/
+dribble_url: https://dribbble.com/
+github_url: https://github.com/binglinli/hexo-theme-icehploard
+googleplus_url: https://plus.google.com/
+behance_url: https://www.behance.net/
+fivehundredpx_url: https://500px.com/
+email_url: \#
+rss_url: \#
+
 markdown:
   preset: 'default'
   render:
@@ -53,7 +93,6 @@ easy_tags_plugin:
   tag_name_case: 1
   sort_ignore_case: true
 
-
 restful:
   # site 可配置为数组选择性生成某些属性
   # site: ['title', 'subtitle', 'description', 'author', 'since', email', 'favicon', 'avatar']
@@ -78,3 +117,18 @@ restful:
   use_tag_slug: false      # Use slug for filename of tag data
   post: true               # 文章数据
   pages: false             # 额外的 Hexo 页面数据, 如 About
+
+# Sitemap
+sitemap:
+  path: sitemap.xml
+
+### RSS feed
+
+# type: You can choose between Atom and RSS2
+# path: the path to the rss feed
+# limit: the maximum number of posts to show
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 10

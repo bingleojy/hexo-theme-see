@@ -1,0 +1,18 @@
+<section class="hero">
+    <div class="hero-body">
+	<aside class="menu">
+	    <% if (site.categories.length){ %>
+
+		<h2><%- __('categories') %></h2>
+		<ul class="menu-list">
+		    <% site.categories.sort('posts.length').limit(4).each(function(cat){ %>
+			<li class="menu-link">
+			    <a href="<%- url_for(cat.path) %>"><%= cat.name.substring(0, 25) %></a>
+			</li>
+		    <% }) %>
+		</ul>
+
+	    <% } %>
+	</aside>
+    </div>
+</section>

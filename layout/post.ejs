@@ -1,45 +1,48 @@
-<div class="container">
+<%- partial('_partial/article-full',{item: page}) %>
 
-      <div class="text-center">
-        <h3><%= page.title %></h3>
-        <h6 class="opacity-50">
-	    <span class="fonts-2 badge text-bg-secondary">
-		<i class="bi bi-calendar-date"> </i><%- full_date(page.date,'MMMM Do YYYY') %>
-	    </span>
+<section class="hero mb-5">
+    <div class="hero-body">
+	<% site.categories.map(function(category){  %>
+	    <% page.categories.map(function(page_category){ %>
 
-	    <a href="" class="badge text-bg-secondary">
-		<i class="bi bi-tag"> </i>
-		<span>Tags</span>
-	    </a>
-	</h5>
-      </div>
+		<% if(page_category.name == category.name){ %> <!-- 先找到与当前文字相同的目录 -->
+		    <% let i = 0;%>
+		    <% category.posts.sort('-date').map(function(post){ %>
+			<% i++;  %>
+			<% if(post.title == page.title){ %> <!-- 在找到当前文章所在的 index -->
+			    <% let ix = 0;%>
+			    <% category.posts.sort('-date').map(function(post){ %>
+				<% ix++; %>
 
-	<span>
-	  <%- page.content%>
-	</span>
+				<% if(ix == i + 1 && post.title){ %>  <!-- 上一篇文章 -->
 
-	<div class="container opacity-75 row">
+				    <div class="tags has-addons">
+					<span class="tag is-primary">Previous chapter</span>
+					<span class="tag">
+					    <a href="<%- url_for(post.path) %>"> <%= post.title %></a>
+					</span>
+				    </div>
 
-	    <div class="col">
-		<button type="button" class="btn btn-secondary position-relative">
-		    喜欢
-		    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-			<b><i class="fa fa-thumbs-up"></i></b>
-			<span class="visually-hidden">unread messages</span>
-		    </span>
-		</button>
-	    </div>
-	    <div class="col">
-		<button type="button" class="btn btn-secondary position-relative">
-		    评论
-		    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-			<b>3</b>
-			<span class="visually-hidden">unread messages</span>
-		    </span>
-		</button>
-	    </div>
-	</div>
 
-	<br class="b-example-divider">
-	<br class="b-example-divider">
-</div>
+				<% } %>
+
+				<% if(ix == i - 1 && post.title){ %> <!-- 下一篇文章 -->
+
+				    <div class="tags has-addons">
+					<span class="tag is-primary">Next chapter</span>
+					<span class="tag">
+					    <a href="<%- url_for(post.path) %>"> <%= post.title %></a>
+					</span>
+				    </div>
+
+				<% } %>
+
+			    <% }) %>
+			<% } %>
+		    <% }) %>
+		<% } %>
+
+	    <% })%>
+	<% }) %>
+    </div>
+</section>

@@ -1,0 +1,12 @@
+<% if (site.tags.length) { %>
+
+    <%- tagcloud( {
+	min_font: 50,
+	max_font: 100,
+	amount: 200,
+	color: true,
+	start_color: '#ff6666',
+	end_color: '#0099cc'
+    }) %>
+
+<% } %>

@@ -1,35 +1,37 @@
-<div class="container">
-    <% if (site.posts && site.posts.length > 1) { %>
-	<!-- Pagination -->
-	<nav aria-label="page navigation">
-	    <% if (page.prev || page.next) { %>
+<nav class="pagination mb-5 is-rounded" role="navigation" aria-label="pagination">
 
-		<ul class="page pagination justify-content-center">
-		    <% if (page.prev){ %>
-			<li class="page-item">
-			    <a href="<%- config.root %><%- page.prev_link %>"
-			       class="page-link px-4 link-dark">
-				<%= __('上一页') %>
-			    </a>
-			</li>
-		    <% } else { %>
-			<span class=""><%= __('') %></span>
-		    <% } %>
+    <!-- Frevious Page -->
+    <% if (page.prev){ %>
+	<a class="pagination-previous"
+	   href="<%- config.root %><%- page.prev_link %>">
+	    Previous
+	</a>
 
+    <% } else { %>
 
-		    <% if (page.next){ %>
-			<ul class="page-item">
-			    <a href="<%- config.root %><%- page.next_link %>"
-			       class="page-link px-4 link-dark"><%= __('下一页') %>
-			    </a>
-			</ul>
-		    <% } else { %>
-			<span class=""><%= __('') %></span>
-		    <% } %>
-		</ul>
-
-	    <% } %>
-	</nav>
+	<a class="pagination-previous"
+	   href="<%- config.root %><%- page.prev_link %>">
+	    Previous
+	</a>
 
     <% } %>
-</div>
+
+    <!-- Next Page -->
+    <% if (page.next){ %>
+
+	<a class="pagination-next"
+	   href="<%- config.root %><%- page.next_link %>">
+	    Next
+	</a>
+
+    <% } else { %>
+
+	<a class="pagination-next"
+	   href="<%- config.root %><%- page.next_link %>">
+	    Next
+	</a>
+
+    <% } %>
+
+    </ul>
+</nav>

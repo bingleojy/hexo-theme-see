@@ -1,0 +1,29 @@
+<section class="section">
+
+    <!-- Title -->
+    <h1 class="title">
+        <a href="<%- config.root %><%- item.path %>">
+            <%- item.title %>
+        </a>
+    </h1>
+
+    <!-- Date and Author -->
+    <h2 class="tag has-addons subtitle">
+        <span class="tag"><%= item.date.format(config.date_format) %></span>
+        <% if(item.author) { %>
+            <span class="tag is-primary"><%- item.author %></span>
+        <% } %>
+    </h2>
+
+    <!-- Content -->
+    <%- item.excerpt || item.content %>
+
+    <!-- Only display the Read More link if we are displaying an excerpt -->
+    <% if(item.excerpt) { %>
+        <p>
+            <a href="<%- config.root %><%- item.path %>">
+                <%= theme.excerpt_link %>
+            </a>
+        </p>
+    <% } %>
+</section>

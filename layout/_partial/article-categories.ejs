@@ -1,0 +1,15 @@
+<nav class="breadcrumb is-large has-succeeds-separator" aria-label="breadcrumbs">
+    <ul>
+	<% if (item.categories && item.categories.length){ %>
+	    <%
+		var categories = [];
+		item.categories.forEach(function(category){
+		categories.push('<li><a href="' + config.root + category.path + '">' + category.name + '</a></li>');
+		});
+	    %>
+
+	    <%- categories.join(' ') %>
+
+	<% } %>
+    </ul>
+</nav>

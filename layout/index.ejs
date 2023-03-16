@@ -1,44 +1,5 @@
-<% page.posts.each(function(item){ %>
-    <div class="">
-	<br>
-	<h5 class="fonts-1">
-	    <a href="<%- config.root %><%= item.path %>" class="text-info-emphasis"><%= item.title %></a>
-	</h5>
-	<br>
-
-	<span class="">
-	    <%- item.excerpt %>
-	</span>
-
-	<div class="container opacity-75">
-	    <div class="row">
-		<div class="col">
-		    <span class="fonts-2 badge text-bg-secondary">
-			<i class="bi bi-calendar-date"></i>
-			<%- date(item.date) %>
-		    </span>
-		</div>
-
-		<div class="col">
-		    <a href="" class="badge text-bg-secondary">
-			<i class="bi bi-tag"></i>
-			<span>Tags</span>
-		    </a>
-		</div>
-
-		<div class="col">
-		    <span class="float-end text-uppercase">
-			<a href="<%- config.root %><%= item.path %>"  class="link-dark"><i class="bi bi-body-text">More</i></a>
-		    </span>
-		</div>
-
-		<div class="b-example-divider border-bottom"></div>
-	    </div>
-	</div>
-    </div>
-
-    <div class="b-example-divider"></div>
-
-<% }) %>
+<% page.posts.each(function(item) { %>
+    <%- partial('_partial/article-excerpt', {item: item}) %>
+<% }); %>
 
 <%- partial('_partial/pagination') %>

@@ -1,79 +1,22 @@
-<!-- 归档 -->
-<%
-var title = '';
-var posts = site.posts;
-if (page.category) {
-  title = page.category;
-  posts = page.posts;
-}
-
-if (page.tag) {
-  title = page.tag;
-  posts = page.posts;
-}
-
-if (page.archive){
-  if (page.year) title = page.year + (page.month ? '/' + page.month : '');
-  else {
-    title = __('archive_a');
-    posts = site.posts;
-  }
-}
-var year, month;
-var last_year = 1970;
-var is_first_year = 1;
-%>
-
 <div class="container">
+    <%
+    var title = '';
+    if (page.category) title = page.category;
+    if (page.tag) title = page.tag;
+    if (page.archive){
+        if (page.year) title = page.year + (page.month ? '/' + page.month : '');
+        else title = "Archives";
+    }
+    %>
 
-    <% posts.sort('date', -1).each(function(item){ %>
-      <%
-	  year = item.date.toDate().getFullYear();
-	    month = item.date.toDate().getMonth();
-      %>
+    <% if(title) { %>
+	<h2 class="blog-archive-title"><%- title %></h2>
+    <% } %>
 
-      <% if (year != last_year){ %>
-	<% if (!is_first_year) { %>
 
-	<% } %>
-
-	<% is_first_year = 0 %>
-
-	<!-- 年份分类  -->
-	<div class="w3-justify">
-	  <br>
-	  <span class=""><%= year %></span><br>
-	  <br>
-	</div>
-
-	<% last_year = year; %>
-
-      <% } %>
-      <div class="w3-row-padding w3-margin">
-	<span class="">&nbsp;&nbsp;<%= item.date.format("MM-DD") %>&nbsp;&nbsp;</span>
-
-	<% if (item.link){ %>
-	  <% if (item.title){ %>
-
-	    <a href="<%- item.link %>"<% if (item.description) { %>title="<%= item.description %>"<% } %>><%= item.title %>
-	    </a>
-
-	  <% } else { %>
-
-	    <a href="<%- item.link %>"
-	      <% if (item.description) { %> title="<%= item.description %>" <% } %>><%= item.link %></a>
-
-	  <% } %>
-	<% } else { %>
-
-	  <a class="w3-bar-item w3-button w3-padding w3-text-teal"  href="<%- config.root %><%- item.path %>"
-	    <% if (item.description) { %> title="<%= item.description %>" <% } %>><%= item.title %>
-	  </a>
-      </div>
-      <% } %>
-
+    <% page.posts.each(function(item){ %>
+	<%- partial('_partial/article-archive', {item: item}) %>
     <% }); %>
 
     <%- partial('_partial/pagination') %>
-
 </div>
